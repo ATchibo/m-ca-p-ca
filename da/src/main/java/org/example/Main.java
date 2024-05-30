@@ -16,7 +16,19 @@ public class Main {
             File myObj = new File("src/main/java/org/example/input.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
-                int animal = myReader.nextInt();
+
+                int animal = 0;
+                try {
+                    animal = myReader.nextInt();
+                } catch (Exception e) {
+                    System.out.println("The file contains invalid data. Please check the file and try again.");
+                    return;
+                }
+
+                if (animal < 1 || animal > 3) {
+                    System.out.println("The file contains invalid data. Please check the file and try again.");
+                    return;
+                }
 
                 if (!animals.isEmpty()) {
                     Integer lastAnimal = animals.getLast();
