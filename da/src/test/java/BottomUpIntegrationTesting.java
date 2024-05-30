@@ -21,11 +21,16 @@ public class BottomUpIntegrationTesting {
     @Test
     public void addCow(){
         List<Integer> afterInsert = new ArrayList<>();
-        afterInsert.add(animals.getFirst());
-        InsertCow(afterInsert);
-        afterInsert.addAll(animals.subList(1, animals.size()));
-        boolean areEqual = afterInsert.equals(animalsAfter1Insert);
-        assertTrue(areEqual);
+        try {
+            afterInsert.add(animals.get(0));
+            InsertCow(afterInsert);
+            afterInsert.addAll(animals.subList(1, animals.size()));
+            boolean areEqual = afterInsert.equals(animalsAfter1Insert);
+            assertTrue(areEqual);
+        }
+        catch (Exception e) {
+            assert false;
+        }
     }
 
     @Test
@@ -40,7 +45,12 @@ public class BottomUpIntegrationTesting {
         for(int i = 0; i <= index; i++){
             afterInsert.add(animals.get(i));
         }
-        InsertCow(afterInsert);
+        try {
+            InsertCow(afterInsert);
+        }
+        catch (Exception e) {
+            assert false;
+        }
         afterInsert.addAll(animals.subList(index+1, animals.size()));
         boolean areEqual = afterInsert.equals(animalsAfter1Insert);
         assertTrue(areEqual);
@@ -58,7 +68,12 @@ public class BottomUpIntegrationTesting {
         for(int i = 0; i <= index; i++){
             afterInsert.add(animals.get(i));
         }
-        InsertCow(afterInsert);
+        try {
+            InsertCow(afterInsert);
+        }
+        catch (Exception e) {
+            assert false;
+        }
         afterInsert.addAll(animals.subList(index+1, animals.size()));
         afterInsert = BeFriends(afterInsert);
         boolean areEqual = afterInsert.equals(animalsAfterBeFriends);
