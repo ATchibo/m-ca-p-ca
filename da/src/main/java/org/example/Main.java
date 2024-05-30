@@ -58,21 +58,29 @@ public class Main {
         return false;
     }
 
-    public static void InsertCow(List<Integer> animals) {
+    public static void InsertCow(List<Integer> animals) throws Exception {
+        if (animals == null) {
+            throw new Exception("Invalid list");
+        }
         animals.add(4);
     }
 
     public static List<Integer> BeFriends(List<Integer> animals) {
         List<Integer> friends = new ArrayList<>();
 
-        for (int i = 0; i < animals.size() - 1; i++) {
-            friends.add(animals.get(i));
-            if (FindPair(animals, i)) {
-                InsertCow(friends);
+        try {
+            for (int i = 0; i < animals.size() - 1; i++) {
+                friends.add(animals.get(i));
+                if (FindPair(animals, i)) {
+                    InsertCow(friends);
+                }
             }
         }
+        catch (Exception e) {
+            return null;
+        }
 
-        friends.add(animals.getLast());
+        friends.add(animals.get(animals.size() - 1));
 
         return friends;
     }
