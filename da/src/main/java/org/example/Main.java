@@ -42,7 +42,7 @@ public class Main {
         System.out.println(BeFriends(animals));
     }
 
-    private static boolean FindPair(List<Integer> animals, int crtAnimalPos) {
+    public static boolean FindPair(List<Integer> animals, int crtAnimalPos) {
         if (!animals.isEmpty() && crtAnimalPos < animals.size() - 1) {
             Integer firstAnimal = animals.get(crtAnimalPos);
             Integer secondAnimal = animals.get(crtAnimalPos + 1);
@@ -58,11 +58,11 @@ public class Main {
         return false;
     }
 
-    private static void InsertCow(List<Integer> animals) {
+    public static void InsertCow(List<Integer> animals) {
         animals.add(4);
     }
 
-    private static List<Integer> BeFriends(List<Integer> animals) {
+    public static List<Integer> BeFriends(List<Integer> animals) {
         List<Integer> friends = new ArrayList<>();
 
         for (int i = 0; i < animals.size() - 1; i++) {
